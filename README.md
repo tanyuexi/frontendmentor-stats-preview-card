@@ -53,7 +53,7 @@ Users should be able to:
 
 Make codes more reusable and modular by put related codes in files named like '_color.scss'. Import and use them in *main.scss*:
 
-```
+```scss
 // main.scss
 
 @use 'base';
@@ -66,7 +66,7 @@ Make codes more reusable and modular by put related codes in files named like '_
 
 To manage colors, it is convenient to generate classes for front/background colors: 
 
-```
+```scss
 // _color.scss
 
 $very-dark-blue: hsl(233, 47%, 7%);
@@ -92,7 +92,7 @@ $colors: (
 
 To selector direct child `div` of class `.flex-container`:
 
-```
+```css
 // CSS
 
 .flex-container > div {
@@ -106,7 +106,7 @@ To selector direct child `div` of class `.flex-container`:
 
 To selector immediate element after something:
 
-```
+```css
 // CSS
 
 h1 + p {
@@ -120,7 +120,7 @@ div + div {
 
 #### Resize image inside `<img>`
 
-```
+```scss
 // main.scss
 
 div {
@@ -138,7 +138,7 @@ div {
 
 #### To set the image to a color tone
 
-```
+```scss
 // main.scss
 
 div {
@@ -154,7 +154,7 @@ div {
 
 #### Text manipulate: uppercase and letter space
 
-```
+```css
 // CSS
 
 .legend {
