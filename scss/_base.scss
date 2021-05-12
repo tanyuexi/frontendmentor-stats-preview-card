@@ -1,0 +1,33 @@
+$content-max-width: 1100px;
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 12rem 2rem;
+  position: relative;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.page-wrapper {
+  max-width: $content-max-width;
+  margin: auto;
+}
+
+@mixin box-bg($color) {
+  border-radius: 0.5rem;
+  background: $color;
+  overflow: hidden;
+}
+
+@mixin bg-img($top-or-bottom, $left-or-right) {
+  position: absolute;
+  #{$top-or-bottom}: 0;
+  #{$left-or-right}: 0;
+}

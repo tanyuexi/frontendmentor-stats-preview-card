@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 12rem 2rem;
+  position: relative;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.page-wrapper {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.bg-very-dark-blue {
+  background-color: #090b1a;
+}
+
+.very-dark-blue {
+  color: #090b1a;
+}
+
+.bg-dark-desaturated-blue {
+  background-color: #1b1938;
+}
+
+.dark-desaturated-blue {
+  color: #1b1938;
+}
+
+.bg-soft-violet {
+  background-color: #aa5cdb;
+}
+
+.soft-violet {
+  color: #aa5cdb;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.white {
+  color: white;
+}
+
+.bg-transparent-white__paragraph {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.transparent-white__paragraph {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.bg-transparent-white__stat-heading {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.transparent-white__stat-heading {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.font-weight-bold {
+  font-weight: 700;
+}
+
+.font-weight-regular {
+  font-weight: 400;
+}
+
+html {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 2.3rem;
+}
+
+.flex-container-space-around, .flex-container-space-between, .flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-container-space-between {
+  justify-content: space-between;
+}
+
+.flex-container-space-around {
+  justify-content: space-around;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.page-wrapper {
+  border-radius: 0.5rem;
+  background: #1b1938;
+  overflow: hidden;
+  flex-direction: row-reverse;
+  align-items: stretch;
+}
+
+.img-cover {
+  flex: 0 0 50%;
+  background: #aa5cdb;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.img-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  mix-blend-mode: multiply;
+  opacity: 0.75;
+}
+
+.text-content {
+  flex: 0 0 45%;
+  padding: 4rem;
+  letter-spacing: 0.02em;
+}
+.text-content .title {
+  flex: 100%;
+}
+.text-content .title h1 {
+  font-weight: 700;
+}
+.text-content .title p {
+  margin-top: 2rem;
+}
+.text-content .stat {
+  flex: 100%;
+  margin-top: 4rem;
+}
+.text-content .stat .card {
+  flex: 30%;
+}
+.text-content .stat .card .number {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.text-content .stat .card .legend {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.attribution {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 11px;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+
+@media (max-width: 800px) {
+  .page-wrapper {
+    flex-direction: row;
+  }
+
+  .img-cover {
+    flex: 100%;
+  }
+
+  .text-content {
+    flex: 100%;
+    padding: 2rem;
+    text-align: center;
+  }
+  .text-content .title {
+    flex: 100%;
+  }
+  .text-content .title h1 {
+    font-size: 1.8rem;
+  }
+  .text-content .title p {
+    margin-top: 1rem;
+  }
+  .text-content .stat {
+    margin: 0;
+  }
+  .text-content .stat .card {
+    flex: 100%;
+    margin-top: 2rem;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

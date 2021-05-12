@@ -1,0 +1,20 @@
+%flex-shared {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-container {
+  @extend %flex-shared;
+}
+
+.flex-container-space-between {
+  @extend %flex-shared;
+  justify-content: space-between;
+}
+
+.flex-container-space-around {
+  @extend %flex-shared;
+  justify-content: space-around;
+}
