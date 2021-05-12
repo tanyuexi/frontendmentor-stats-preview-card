@@ -11,12 +11,14 @@ This is a solution to the [Stats preview card component challenge on Frontend Me
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
+    - Use Sass to pre-process CSS
+    - Selectors `>` and `+`
+    - Resize image inside `<img>`
+    - To set the image to a color tone
+    - Text manipulate: uppercase and letter space
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
+
 
 ## Overview
 
@@ -33,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: <https://github.com/tanyuexi/frontendmentor-stats-preview-card/>
+- Live Site URL: <https://tanyuexi.github.io/frontendmentor-stats-preview-card/>
 
 ## My process
 
@@ -43,61 +45,124 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+#### Use Sass to pre-process CSS
 
-To see how you can add code snippets, see below:
+Make codes more reusable and modular by put related codes in files named like '_color.scss'. Import and use them in *main.scss*:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+// main.scss
+
+@use 'base';
+@use 'color';
+
+.img-cover {
+  background: color.$soft-violet;
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+To manage colors, it is convenient to generate classes for front/background colors: 
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```
+// _color.scss
+
+$very-dark-blue: hsl(233, 47%, 7%);
+$dark-desaturated-blue: hsl(244, 38%, 16%);
+
+$colors: (
+  'very-dark-blue': $very-dark-blue,
+  'dark-desaturated-blue': $dark-desaturated-blue
+);
+
+@each $key, $value in $colors {
+  .bg-#{$key} {
+    background-color: $value;
+  }
+
+  .#{$key} {
+    color: $value;
+  }
+}
+```
+
+#### Selectors `>` and `+`
+
+To selector direct child `div` of class `.flex-container`:
+
+```
+// CSS
+
+.flex-container > div {
+  // direct children of .flex-container
+}
+
+.flex-container div {
+  // all children of .flex-container
+}
+```
+
+To selector immediate element after something:
+
+```
+// CSS
+
+h1 + p {
+  // first <p> after <h1>
+}
+
+div + div {
+  // all successive <div>s except the first one. Useful to set space items.
+}
+```
+
+#### Resize image inside `<img>`
+
+```
+// main.scss
+
+div {
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    // adjust position if desirable:
+    // object-position: center center;  
+  }
+}
+```
+
+#### To set the image to a color tone
+
+```
+// main.scss
+
+div {
+  background: color.$soft-violet;
+  position: relative;
+
+  img {
+    mix-blend-mode: multiply;
+    opacity: 0.75;
+  }
+}
+```
+
+#### Text manipulate: uppercase and letter space
+
+```
+// CSS
+
+.legend {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
-## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+Develope a more efficient workflow for setting spacing.
